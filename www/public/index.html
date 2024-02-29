@@ -13,9 +13,14 @@
 <!-- (module
   (import "console" "log" (func $log))
   (import "console" "error" (func $error))
+  (memory (import "js" "memory"))
+  (data (i32.const 0) "Hi")
   (func (export "addTwo") (param i32 i32) (result i32)
     call $log
 	call $error
+
  	local.get 0
     local.get 1
-    i32.add)) -->
+    i32.add)
+  (export "wasmMemory" (memory 0))
+) -->
